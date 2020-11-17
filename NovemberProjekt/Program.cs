@@ -7,7 +7,16 @@ namespace NovemberProjekt
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Raylib.InitWindow(800, 600, "Game Engine");
+            Raylib.SetTargetFPS(60);
+
+            while (!Raylib.WindowShouldClose()){
+                Raylib.DrawRectangle()
+
+            }
+
+            Console.ReadLine();
+
             
         }
     }
