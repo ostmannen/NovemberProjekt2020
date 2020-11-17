@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Net.NetworkInformation;
+using System;
 using Raylib_cs;
 
 namespace NovemberProjekt
@@ -9,10 +10,13 @@ namespace NovemberProjekt
         {
             Raylib.InitWindow(800, 600, "Game Engine");
             Raylib.SetTargetFPS(60);
+            Ship player = new Ship();
 
             while (!Raylib.WindowShouldClose()){
-                Raylib.DrawRectangle()
-
+                Raylib.BeginDrawing();
+                Raylib.ClearBackground(Color.GRAY);
+                player.drawShip();
+                Raylib.EndDrawing();
             }
 
             Console.ReadLine();
