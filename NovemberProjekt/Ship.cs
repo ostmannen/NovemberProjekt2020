@@ -6,12 +6,13 @@ namespace NovemberProjekt
     public class Ship
     {
         private int hp = 3;
-        private float movementSpeed = 1;
+        private float movementSpeed = 3;
         private float fireSpeed = 1;
         private float xPos = 0;
         private float yPos = 0;
         private int height = 50;
         private int width = 50;
+        
         
         public void drawShip(){
             Raylib.DrawRectangle((int)xPos,(int)yPos,width,height, Color.PINK);
@@ -27,6 +28,9 @@ namespace NovemberProjekt
             if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)){
                 yPos += movementSpeed;
             }
+        }
+        private void pewpew(){
+
         }
     }
 }
