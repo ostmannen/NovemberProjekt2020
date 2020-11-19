@@ -7,26 +7,26 @@ namespace NovemberProjekt
     public class Projectile
     {
 
+
+        public bool exists = false;
         public string name = "hej";
         private int projectileCount;
         private int height = 10;
         private int width = 10;
-        private int ProjectileYPos;
-        private int ProjectileXPos;
-        public List<Projectile> allProjektiles = new List<Projectile>();
-        public void createProjektile(){
-            allProjektiles.Add(new Projectile());
+        public float ProjectileYPos;
+        public float ProjectileXPos;
+        public static List<Projectile> allProjectiles = new List<Projectile>();
+        public static void createProjektile(Projectile p){
+            allProjectiles.Add(p);
         }
-        public void fireProjectile(){
-  
+        private void fireProjectile(){
+            exists = true;
+        }
+        public void update(){
+            Raylib.DrawRectangle((int)ProjectileXPos, (int)ProjectileYPos, width, height, Color.GREEN);
+            ProjectileYPos--;
         }
     }
 }
 
 
-  /*    Projectile hej = new Projectile(){
-                ProjectileYPos = 10, ProjectileXPos = 10
-            };
-            Raylib.DrawRectangle(xPos, yPos, width, height, Color.GREEN);
-            hej.ProjectileYPos++;
-            projectileCount++; */

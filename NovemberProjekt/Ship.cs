@@ -8,8 +8,8 @@ namespace NovemberProjekt
         private int hp = 3;
         private float movementSpeed = 3;
         private float fireSpeed = 1;
-        private float xPos = 0;
-        private float yPos = 0;
+        public float xPos = 0;
+        public float yPos = 0;
         private int height = 50;
         private int width = 50;
         
@@ -28,9 +28,6 @@ namespace NovemberProjekt
             if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN)){
                 yPos += movementSpeed;
             }
-        }
-        private void pewpew(){
-
         }
     }
 }
