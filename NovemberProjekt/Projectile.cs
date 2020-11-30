@@ -6,8 +6,6 @@ namespace NovemberProjekt
 {
     public class Projectile
     {
-
-
         public bool exists = false;
         public string name = "hej";
         private int projectileCount;
@@ -15,6 +13,7 @@ namespace NovemberProjekt
         private int width = 10;
         public float ProjectileYPos;
         public float ProjectileXPos;
+        private float ProjectileSpeed = 8;
         public static List<Projectile> allProjectiles = new List<Projectile>();
         public static void createProjektile(Projectile p){
             allProjectiles.Add(p);
@@ -24,7 +23,8 @@ namespace NovemberProjekt
         }
         public void update(){
             Raylib.DrawRectangle((int)ProjectileXPos, (int)ProjectileYPos, width, height, Color.GREEN);
-            ProjectileYPos--;
+            ProjectileYPos -= ProjectileSpeed;
+
         }
     }
 }
