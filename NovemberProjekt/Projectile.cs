@@ -24,6 +24,7 @@ namespace NovemberProjekt
         public void update(){
             Raylib.DrawRectangle((int)ProjectileXPos, (int)ProjectileYPos, width, height, Color.GREEN);
             ProjectileYPos -= ProjectileSpeed;
+            
 
         }
     }
