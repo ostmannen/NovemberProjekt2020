@@ -8,7 +8,6 @@ namespace NovemberProjekt
     {
         public bool exists = false;
         public string name = "hej";
-        private int projectileCount;
         private int height = 10;
         private int width = 10;
         public float ProjectileYPos;

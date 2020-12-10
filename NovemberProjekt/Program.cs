@@ -48,16 +48,17 @@ namespace NovemberProjekt
                     Meteorite.spawner();
                     meteoriteTimer = 0;
                 }
-                for (int i = 0; i < Meteorite.allMeteorites.Count; i++)
+                for (int i = 0; i < Meteorite.allMeteorites.Count-1; i++)
                 {
-                    for (int i = 0; i < length; i++)
+                    for (int j = 0; i < Projectile.allProjectiles.Count-1; j++)
                     {
-                        
+                        if (Projectile.allProjectiles[j].ProjectileXPos <= Meteorite.allMeteorites[i].xPos)
+                        {
+                            System.Console.WriteLine("ööö what is going on");
+                        }
                     }
                 }
-                if (Projectile.allProjectiles[1].ProjectileXPos <= Meteorite.allMeteorites[1].xPos){
-                    System.Console.WriteLine("bith");
-                }
+                
                 //lambda expression
                 Raylib.EndDrawing();
             }
