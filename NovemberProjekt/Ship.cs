@@ -8,25 +8,32 @@ namespace NovemberProjekt
         private int hp = 3;
         private float movementSpeed = 5;
         private float fireSpeed = 1;
-        public float xPos = 375;
-        public float yPos = 400;
-        private int height = 50;
-        private int width = 50;
+        public Rectangle shipRec = new Rectangle(375, 400, 50, 50);
         
-        
-        public void drawShip(){
-            Raylib.DrawRectangle((int)xPos,(int)yPos,width,height, Color.PINK);
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT) && xPos <= 750){
-                xPos += movementSpeed;
+        public void update(){
+            Raylib.DrawRectangleRec(shipRec, Color.PINK);
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT) && shipRec.x <= 750){
+                shipRec.x += movementSpeed;
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT) && xPos != 0){
-                xPos -= movementSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT) && shipRec.x != 0){
+                shipRec.x -= movementSpeed;
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_UP) && yPos >= 0){
-                yPos -= movementSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_UP) && shipRec.y >= 0){
+                shipRec.y -= movementSpeed;
             }
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN) && yPos <= 550){
-                yPos += movementSpeed;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN) && shipRec.y <= 550){
+                shipRec.y += movementSpeed;
+            }
+            for (int i = 0; i < Meteorite.allMeteorites.Count; i++)
+            {
+                if (Raylib.CheckCollisionRecs(shipRec, Meteorite.allMeteorites[i].hej))
+                {
+                    Meteorite.allMeteorites.RemoveAt(i);
+                    hp--;
+                    if (hp <= 0){
+                        System.Console.WriteLine("hej");
+                    }
+                }
             }
         }
     }
