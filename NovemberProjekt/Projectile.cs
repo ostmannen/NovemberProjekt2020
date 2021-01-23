@@ -14,7 +14,7 @@ namespace NovemberProjekt
         public float ProjectileYPos;
         public float ProjectileXPos;
         private float ProjectileSpeed = 8;
-        public Rectangle hej;
+        public Rectangle projectileRec;
         public static List<Projectile> allProjectiles = new List<Projectile>();
         public static void createProjektile(Projectile p){
             allProjectiles.Add(p);
@@ -24,16 +24,16 @@ namespace NovemberProjekt
         }
         public void update(){
             if (exists == false){
-                hej = new Rectangle(ProjectileXPos, ProjectileYPos,  width, height);
+                projectileRec = new Rectangle(ProjectileXPos, ProjectileYPos,  width, height);
                 exists = true;
             }
 
-            Raylib.DrawRectangleRec(hej, Color.RED);
-            hej.y -= ProjectileSpeed;
+            Raylib.DrawRectangleRec(projectileRec, Color.RED);
+            projectileRec.y -= ProjectileSpeed;
 
             for (int i = 0; i < Meteorite.allMeteorites.Count; i++)
             {
-                if (Raylib.CheckCollisionRecs(Meteorite.allMeteorites[i].hej, this.hej))
+                if (Raylib.CheckCollisionRecs(Meteorite.allMeteorites[i].meteoriteRec, this.projectileRec))
                 {
                     Meteorite.allMeteorites.RemoveAt(i);
                     allProjectiles.Remove(this);

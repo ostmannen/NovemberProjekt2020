@@ -12,20 +12,25 @@ namespace NovemberProjekt
         public float yPos = -100;
         private float fallSpeed = 5;
         public Random generator = new Random();
-        public Rectangle hej;
+        public Rectangle meteoriteRec;
         public static List<Meteorite> allMeteorites = new List<Meteorite>();
+        //En lista med alla mereorites
         public Meteorite()
         {
             xPos = random(0, 800);
-            hej = new Rectangle(xPos, yPos, width, height);
+            //x värdet kommer slumpas mellan 0 och 800
+            meteoriteRec = new Rectangle(xPos, yPos, width, height);
+            //skapar en rektangel 
         }
         public void update(){
-            hej.y += fallSpeed;
+            meteoriteRec.y += fallSpeed;
+            //gör så att metioriterna faller varje frame
 
-            Raylib.DrawRectangleRec(this.hej, Color.BLACK);
+            Raylib.DrawRectangleRec(this.meteoriteRec, Color.BLACK);
             if (yPos >= 600)
             {
                 allMeteorites.Remove(this);
+                //tar bort metioriten ifall y värdet är för högt
             }
         }
         static public void spawner(){
